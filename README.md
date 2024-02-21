@@ -49,6 +49,7 @@ T = {
         'Backward': [(1.0, 'L2', -1.0, False)]
     }
 }
+print(T)
 ```
 
 ## OUTPUT:
