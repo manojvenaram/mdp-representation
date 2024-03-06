@@ -1,61 +1,108 @@
 # MDP REPRESENTATION
 
 ## AIM:
-To represent any one real-world problem in MDP form.
+To represent a Markov Decision Process(MDP) problem in the following ways.
+
+1. Text representation
+2. Graphical representation
+3. Python - Dictonary representation
 
 ## PROBLEM STATEMENT:
 
 ### Problem Description
-Develop a robotic navigation game where the agent moves through levels (L1, L2, L3) taking actions (Forward, Backward, Stay), earning rewards based on successful navigation, and aiming to maximize the cumulative reward in a Markov Decision Process.
+To develop an environment consisting of a mobile tower as the start and the house as the goal. The aim is to make sure the network signals reaches the house.
 
 ### State Space
-The state space corresponds to different configurations or locations of the robot in the environment.
-{L1, L2, L3} -> {0, 1, 2}
+{0,1,2,3,4,5,6,7}
 
 ### Sample State
-L1 -> 0 -> Level 1
+4
 
 ### Action Space
-The action space represents the robot's movement options.
-{Forward, Backward, Stay} -> {0, 1, 2}
+* {0} Moving Up
+* {1} Moving Right
+* {2} Moving Down
+* {3} Moving Left
 
 ### Sample Action
-Forward -> 0 -> Moving Forward
+{1} Moving Right
 
 ### Reward Function
-The reward function assigns immediate rewards to the robot based on its actions and the resulting state.
-Reward(State, Action, NextState)
+* +1 - If the goal is reached
+* 0 - Otherwise
 
-### Graphical Representation
-![1](https://github.com/manojvenaram/mdp-representation/assets/94165064/bf224b74-46d2-4c43-800b-082e82b0a826)
+## GRAPHICAL REPRESENTATION:
+![](https://github.com/RanjithD18/mdp-representation/blob/main/1.jpeg)
 
 
 ## PYTHON REPRESENTATION:
-
 ```python
-Register Number:212221240025
-Name: Manoj Choudhary V
-T = {
-    'L1': {
-        'Forward': [(1.0, 'L2', 1.0, False)],
-        'Stay': [(1.0, 'L1', 0.0, False)]
+P = {
+    0 : {
+        0 : [(1.0, 0, 0.0, False)],
+        1 : [(1.0, 1, 0.0, False)],
+        2 : [(1.0, 2, 0.0, False)],
+        3 : [(1.0, 0, 0.0, False)]
     },
-    'L2': {
-        'Forward': [(0.8, 'L3', 1.0, True), (0.2, 'L2', 0.0, False)],
-        'Backward': [(1.0, 'L1', -1.0, False)]
+
+    1 : {
+        0 : [(1.0, 1, 0.0, False)],
+        1 : [(1.0, 1, 0.0, False)],
+        2 : [(0.8, 3, 0.0, False), (0.2, 1, 0.0, False)],
+        3 : [(0.8, 0, 0.0, False), (0.2, 1, 0.0, False)]
     },
-    'L3': {
-        'Stay': [(1.0, 'L3', 0.0, True)],
-        'Backward': [(1.0, 'L2', -1.0, False)]
+
+    2 : {
+        0 : [(0.8, 0, 0.0, False), (0.2, 2, 0.0, False)],
+        1 : [(0.8, 3, 0.0, False), (0.2, 2, 0.0, False)],
+        2 : [(1.0, 2, 0.0, False)],
+        3 : [(1.0, 2, 0.0, False)]
+    },
+
+    3 : {
+        0 : [(0.8, 1, 0.0, False), (0.2, 3, 0.0, False)],
+        1 : [(1.0, 3, 0.0, False)],
+        2 : [(0.8, 4, 0.0, False), (0.2, 3, 0.0, False)],
+        3 : [(0.8, 2, 0.0, False), (0.2, 3, 0.0, False)]
+    },
+
+    4 : {
+        0 : [(0.8, 3, 0.0, False), (0.2, 4, 0.0, False)],
+        1 : [(0.8, 5, 0.0, False), (0.2, 4, 0.0, False)],
+        2 : [(0.8, 6, 0.0, False), (0.2, 4, 0.0, False)],
+        3 : [(1.0, 4, 0.0, False)]
+    },
+
+    5 : {
+        0 : [(1.0, 5, 0.0, False)],
+        1 : [(1.0, 5, 0.0, False)],
+        2 : [(0.8, 7, 1.0, True), (0.2, 5, 0.0, False)],
+        3 : [(0.8, 4, 0.0, False), (0.2, 5, 0.0, False)]
+    },
+
+    6 : {
+        0 : [(0.8, 4, 0.0, False), (0.2, 6, 0.0, False)],
+        1 : [(0.8, 7, 1.0, True), (0.2, 6, 0.0, False)],
+        2 : [(1.0, 6, 0.0, False)],
+        3 : [(1.0, 6, 0.0, False)]
+    },
+
+    7 : {
+        0 : [(1.0, 7, 0.0, True)],
+        1 : [(1.0, 7, 0.0, True)],
+        2 : [(1.0, 7, 0.0, True)],
+        3 : [(1.0, 7, 0.0, True)]
     }
 }
-print(T)
 ```
 
 ## OUTPUT:
-![image](https://github.com/manojvenaram/mdp-representation/assets/94165064/d78f9291-cde1-410a-b290-3cf8da0d703b)
+![](https://github.com/RanjithD18/mdp-representation/blob/main/2.png)
+
+
+
 
 
 ## RESULT:
-Thus the given real world problem is successfully represented in a MDP form .
+Thus a real world problem is represented as Markov Decision Problem in the following ways successfully: Text Representation, Graphical Representation, Python Representation
 
